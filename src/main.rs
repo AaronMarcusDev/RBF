@@ -8,5 +8,6 @@ fn load_file(file_path: &str) -> String {
 
 fn main() {
     let content: String = load_file("./main.b");
-    lexer::lex(content);
+    let tokens: Vec<lexer::Command> = lexer::lex(content);
+    println!("{:?}", tokens);
 }
