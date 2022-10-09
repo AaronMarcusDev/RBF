@@ -1,5 +1,5 @@
 #[derive(Debug)]
-pub enum Command {
+pub enum Instruction {
     Increment,
     Decrement,
     ShiftLeft,
@@ -10,18 +10,18 @@ pub enum Command {
     CharIn,
 }
 
-pub fn lex(input: String) -> Vec<Command> {
-    let mut tokens: Vec<Command> = Vec::new();
+pub fn lex(input: String) -> Vec<Instruction> {
+    let mut tokens: Vec<Instruction> = Vec::new();
     for c in input.split("") {
         match c {
-            "+" => tokens.push(Command::Increment),
-            "-" => tokens.push(Command::Decrement),
-            "<" => tokens.push(Command::ShiftLeft),
-            ">" => tokens.push(Command::ShiftRight),
-            "[" => tokens.push(Command::LoopStart),
-            "]" => tokens.push(Command::LoopEnd),
-            "." => tokens.push(Command::CharOut),
-            "," => tokens.push(Command::CharIn),
+            "+" => tokens.push(Instruction::Increment),
+            "-" => tokens.push(Instruction::Decrement),
+            "<" => tokens.push(Instruction::ShiftLeft),
+            ">" => tokens.push(Instruction::ShiftRight),
+            "[" => tokens.push(Instruction::LoopStart),
+            "]" => tokens.push(Instruction::LoopEnd),
+            "." => tokens.push(Instruction::CharOut),
+            "," => tokens.push(Instruction::CharIn),
             _ => (),
         }
     }

@@ -1,4 +1,5 @@
 use std::fs;
+use std::env;
 mod lexer;
 
 fn load_file(file_path: &str) -> String {
@@ -7,7 +8,18 @@ fn load_file(file_path: &str) -> String {
 }
 
 fn main() {
-    let content: String = load_file("./main.b");
-    let tokens: Vec<lexer::Command> = lexer::lex(content);
-    println!("{:?}", tokens);
+    // Command line arguments
+    let mut args: Vec<String> = env::args().collect();
+    args.remove(0);
+
+    if args.len() != 1 {
+        println!("Usage: rbf <file>");
+    } else {
+        // Load file
+        let content: String = load_file("./main.b");
+    
+        //Calling lexer
+        let _tokens: Vec<lexer::Instruction> = lexer::lex(content);
+    }
+
 }

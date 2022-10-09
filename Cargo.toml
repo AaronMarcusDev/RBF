@@ -1,5 +1,5 @@
 [package]
-name = "Rust-BFC"
+name = "rbf"
 version = "0.1.0"
 edition = "2021"
 
