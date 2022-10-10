@@ -16,7 +16,8 @@ fn main() {
     args.remove(0);
 
     if args.len() != 1 {
-        println!("Usage: rbf <file>");
+        println!("[ERROR] Invalid number of arguments.");
+        println!("[INFO] Usage: rbf <file>");
     } else {
         // Load file
         let content: String = load_file(args[0].as_str());

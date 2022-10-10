@@ -9,7 +9,7 @@ pub fn interpret(tokens: Vec<lexer::Instruction>) {
             lexer::Instruction::ShiftLeft => ptr -= 1,
             lexer::Instruction::ShiftRight => ptr += 1,
             lexer::Instruction::Increment => {
-                if mem[ptr as usize] == mem.len() as u8 {
+                if mem[ptr as usize] == (mem.len() - 1) as u8 {
                     mem[ptr as usize] = 0;
                 } else {
                     mem[ptr as usize] += 1;
@@ -17,7 +17,7 @@ pub fn interpret(tokens: Vec<lexer::Instruction>) {
             }
             lexer::Instruction::Decrement => {
                 if mem[ptr as usize] == 0 {
-                    mem[ptr as usize] = mem.len() as u8;
+                    mem[ptr as usize] = (mem.len() - 1) as u8;
                 } else {
                     mem[ptr as usize] -= 1;
                 }
