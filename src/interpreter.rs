@@ -6,7 +6,7 @@ pub fn interpret(tokens: Vec<lexer::Instruction>) {
 
     for command in tokens {
         match command {
-            lexer::Instruction::ShiftLeft => ptr -= 1,
+            lexer::Instruction::ShiftLeft => if ptr != 0 {ptr -= 1},
             lexer::Instruction::ShiftRight => ptr += 1,
             lexer::Instruction::Increment => {
                 if mem[ptr as usize] == (mem.len() - 1) as u8 {
