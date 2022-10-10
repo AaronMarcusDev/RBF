@@ -1,3 +1,4 @@
+mod interpreter;
 mod lexer;
 
 fn load_file(file_path: &str) -> String {
@@ -22,8 +23,8 @@ fn main() {
 
         if content.trim().len() != 0 {
             //Calling lexer
-            let _tokens: Vec<lexer::Instruction> = lexer::lex(content);
-            println!("dun");
+            let tokens: Vec<lexer::Instruction> = lexer::lex(content);
+            interpreter::interpret(tokens);
         }
     }
 }

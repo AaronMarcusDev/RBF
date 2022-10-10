@@ -10,8 +10,9 @@ pub enum Instruction {
     CharIn,
 }
 
-pub fn lex(input: String) -> Vec<Instruction> {
+pub fn lex(input: String) -> Vec<Instruction> {  
     let mut tokens: Vec<Instruction> = Vec::new();
+
     for c in input.split("") {
         match c {
             "+" => tokens.push(Instruction::Increment),
@@ -22,8 +23,8 @@ pub fn lex(input: String) -> Vec<Instruction> {
             "]" => tokens.push(Instruction::LoopEnd),
             "." => tokens.push(Instruction::CharOut),
             "," => tokens.push(Instruction::CharIn),
-            _ => (),
+            _ => ()
         }
     }
-    return tokens;
-} 
+    tokens
+}
